@@ -20,11 +20,11 @@ Gestão de Desenvolvimento
 | + | [Processar quantidade](https://github.com/PaulDepraz/firma_poc/issues/6) | 0% |
 | + | [Entregar produtos ordenados](https://github.com/PaulDepraz/firma_poc/issues/7) | 0% |
 | |
-| **Cadastrar Receitas** | | **0%** |
+| **Cadastrar Receitas** | | **10%** |
 | + | [Processar ingredientes](https://github.com/PaulDepraz/firma_poc/issues/9) | 0% |
 | + | [Processar verbos](https://github.com/PaulDepraz/firma_poc/issues/10) | 0% |
 | + | [Converter medidas](https://github.com/PaulDepraz/firma_poc/issues/11) | 0% |
-| + | [Armazenar ingredientes](https://github.com/PaulDepraz/firma_poc/issues/12) | 0% |
+| + | [Armazenar ingredientes](https://github.com/PaulDepraz/firma_poc/issues/12) | 50% |
 | + | [Armazenar receita](https://github.com/PaulDepraz/firma_poc/issues/13) | 0% |
 | |
 | **Consultar Prećo** | | **50%** |
