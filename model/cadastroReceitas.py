@@ -1,21 +1,17 @@
+#! /usr/bin/python
 # -*- coding: utf-8 -*-
-class IterMixin(object):
-    def __iter__(self):
-        for attr, value in self.__dict__.iteritems():
-            if(hasattr(value, '__iter__')):
-                yield attr, dict(value)
-            else:
-                yield attr, value
-                
+from jsonable import Jsonable
 
-class Ingrediente(IterMixin):
+
+class Ingrediente(Jsonable):
     'Ingredientes conhecidos pelo aplicativo'
-    def __init__(self, desc, categoria):
+    def __init__(self, desc, comum, categoria):
         self.desc = desc
+        self.comum = comum
         self.categoria = categoria
 
 
-class Categoria(IterMixin):
+class Categoria(Jsonable):
     'Palavras chave para filtro de categoria nas pesquisas'
     def __init__(self, nome, origem):
         self.nome = nome

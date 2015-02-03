@@ -1,5 +1,5 @@
+#! /usr/bin/python
 # -*- coding: utf-8 -*-
-import sys
 import couchdb
 from uuid import uuid4
 
@@ -8,24 +8,23 @@ class Couch():
     """Couchdb Utils Class.
 
     >>> Usage:
-    
+
         couch = Couch(url_=URL, session_=None)
         couch.print_dbs()
-        db = couch.fetch_db(DATABASE) # Iterate through 'db' to get all documents from that database.
+        # Iterate through 'db' to get all documents from that database.
+        db = couch.fetch_db(DATABASE)
         i1_doc = couch.add_doc(db, dict(i1))
         i1_doc['desc'] = 'alface-crespa'
         couch.update_doc(db, i1_doc)
         couch.del_doc(db, i1_doc)
-        
-    
+
+
     >>> Databases:
-    
-        client = couch.get_client() # Iterate through 'client' to get all database names from server.
+        # Iterate through 'client' to get all database names from server.
+        client = couch.get_client()
         db = couch.create_db(DATABASE)
         couch.del_db(DATABASE)
     """
-    
-
     def __init__(self, url_, session_):
         self.url_ = url_
         self.session_ = session_
@@ -47,7 +46,7 @@ class Couch():
         if(db in self.client):
             return self.client[db]
         else:
-            self.create_db(db)
+            return self.create_db(db)
 
     def create_db(self, db):
         try:
@@ -58,11 +57,7 @@ class Couch():
 
         except(couchdb.PreconditionFailed):
             print '[!] Database already exists.'
-            return
-
-        except:
-            print "[!] Error: ", sys.exc_info()[0]
-            return
+            raise couchdb.PreconditionFailed
 
     def del_db(self, db):
         try:
@@ -71,16 +66,14 @@ class Couch():
             print '[*]     Done.'
 
         except(couchdb.ResourceNotFound):
-            print '[!] Database doesnt exist.'
-
-        except:
-            print "[!] Error: ", sys.exc_info()[0]
+            print '[!] Database does not exist.'
+            raise couchdb.ResourceNotFound
 
     def add_doc(self, db, dict_):
         doc_id = uuid4().hex
-        db[doc_id]= dict_
+        db[doc_id] = dict_
         print '\n[*] Done saving document id: ' + doc_id
-        return db[doc_id] 
+        return db[doc_id]
 
     def update_doc(self, db, doc):
         try:
@@ -91,8 +84,7 @@ class Couch():
 
         except(couchdb.ResourceConflict):
             print '[!] Incorrect document revision'
-        except:
-            print "[!] Error: ", sys.exc_info()[0]
+            raise couchdb.ResourceConflict
 
     def del_doc(self, db, doc):
         try:
@@ -102,5 +94,4 @@ class Couch():
 
         except(couchdb.ResourceConflict):
             print '[!] Incorrect document revision'
-        except:
-            print "[!] Error: ", sys.exc_info()[0]
+            raise couchdb.ResourceConflict

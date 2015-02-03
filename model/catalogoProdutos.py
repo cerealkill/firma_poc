@@ -1,14 +1,15 @@
+#! /usr/bin/python
 # -*- coding: utf-8 -*-
-class Produto():
+from jsonable import Jsonable
+
+
+class Produto(Jsonable):
     'Produtos extraídos dos sites'
-    def __init__(self, origem, id_, desc, categoria, preco, img):
+    def __init__(self, origem, o_id, desc, categoria, preco, img, ingrediente):
         self.origem = origem
-        self.id_ = id_
+        self.o_id = o_id
         self.desc = desc
         self.categoria = categoria
         self.preco = preco
         self.img = img
-
-    def js(self):
-        return dict(origem=self.origem, id_=self.id_, desc=self.desc,
-                    categoria=self.categoria, preco=self.preco, img=self.img)
+        self.ingrediente = ingrediente
