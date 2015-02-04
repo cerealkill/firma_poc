@@ -12,9 +12,9 @@ def main():
 
     i1 = Ingrediente('alface', True,
                      [Categoria('verduras', 'pda')])
-    i2 = Ingrediente('rúcula'.decode('utf-8'), True,
+    i2 = Ingrediente('rucula', True,
                      [Categoria('verduras', 'pda')])
-    i3 = Ingrediente('agrião'.decode('utf-8'), True,
+    i3 = Ingrediente('agriao', True,
                      [Categoria('verduras', 'pda')])
     i4 = Ingrediente('cebola', True,
                      [Categoria('alhoecebola', 'pda')])
@@ -48,7 +48,7 @@ def main():
                       [Categoria('whiskiesedestilados', 'pda')])
     i19 = Ingrediente('ovo', True,
                       [Categoria('ovos', 'pda')])
-    i20 = Ingrediente('açúcar'.decode('utf-8'), True,
+    i20 = Ingrediente('acucar', True,
                       [Categoria('acucareadocantes', 'pda')])
     i21 = Ingrediente('farinha de rosca', False,
                       [Categoria('farinhasefarofas', 'pda')])

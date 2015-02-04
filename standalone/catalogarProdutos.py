@@ -79,11 +79,11 @@ def main():
 
     for id in idb:
         i = idb[id]
-        ingrediente = i['desc'].encode('utf-8')
+        ingrediente = i['desc']
         ingrediente_busca = urllib.quote(ingrediente)
         print '---------------------------------------------------------' + \
             '---------------------------------------------------------\n' + \
-            '[+] Begin quering ''Fornecedor'' for: ' + ingrediente
+            '[+] Begin quering ''Fornecedor'' for: ' + i['desc']
 
         categorias = i['categoria']
         for c in categorias:
@@ -92,6 +92,12 @@ def main():
             produtos = fetch_produtos(url, c, i['desc'])
             for p in produtos:
                 couch.add_doc(pdb, dict(p))
+
+        map_function = 'function(doc) {if (doc.ingrediente == "' + \
+            ingrediente + '") {emit(null, {"id": doc.o_id, "desc":' + \
+            ' doc.desc, "img": doc.img, "preco": doc.preco}); } }'
+        view_doc = couch.create_view_doc(i['desc'], map_function)
+        couch.add_view_doc(pdb, view_doc)
 
     print '[+] Done.'
 

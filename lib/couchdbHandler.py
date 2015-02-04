@@ -75,6 +75,16 @@ class Couch():
         print '\n[*] Done saving document id: ' + doc_id
         return db[doc_id]
 
+    def create_view_doc(self, name, map_all):
+        doc_id = '_design/' + name
+        views = { 'all': {'map': map_all }}
+        view_doc = { '_id' : doc_id, 'language': 'javascript', 'views': views}
+        return view_doc
+
+    def add_view_doc(self, db, view_doc):
+        db[view_doc['_id']] = dict(view_doc)
+        print '\n[*] Done saving view: ' + view_doc['_id']
+
     def update_doc(self, db, doc):
         try:
             print '\n[+] Updating document id: ' + doc.id
