@@ -1,31 +1,33 @@
-# -- Aplicativo Web de Cardápios --
-Descrição
-=========
-Repositório dos documentos da POC relacionada ao projeto de capitalizacão da startup vulgarmente denominada "A Firma". Esse repositório também contém os documentos de gestão do projeto de desenvolvimento.
+# -- Meals Menu Web App--
+Description
+===========
+Project proof-of-concept (POC) documents repository. Through this app we intent to gather financial and information resources to begin the activities of our own startup co.
 
-Gestão de Desenvolvimento
-=========================
+The README.md document brings a small dashboard of recent developments on the project.
 
-| Requisito Funcional | Funcionalidade | Progresso |
+Dev Ops Management
+==================
+
+| Use Case | Feature | Progress |
 | :---: |:---| :---:|
 | |
-| **Catalogar Produtos** | | **95%** |
-| + | [Consultar site fornecedor](https://github.com/PaulDepraz/firma_poc/issues/1) | 100% |
-| + | [Processar dados fornecedor](https://github.com/PaulDepraz/firma_poc/issues/2) | 90% |
-| + | [Armazenar produtos](https://github.com/PaulDepraz/firma_poc/issues/3) | 100% |
+| **Load Products** | | **95%** |
+| + | [Reach supplier web site](https://github.com/PaulDepraz/firma_poc/issues/1) | 100% |
+| + | [Process query results](https://github.com/PaulDepraz/firma_poc/issues/2) | 90% |
+| + | [Store products](https://github.com/PaulDepraz/firma_poc/issues/3) | 100% |
 | |
-| **Consultar Produtos** | | **0%** |
-| + | [Processar ingredientes](https://github.com/PaulDepraz/firma_poc/issues/4) | 0% |
-| + | [Consultar base de dados](https://github.com/PaulDepraz/firma_poc/issues/5) | 0% |
-| + | [Processar quantidade](https://github.com/PaulDepraz/firma_poc/issues/6) | 0% |
-| + | [Entregar produtos ordenados](https://github.com/PaulDepraz/firma_poc/issues/7) | 0% |
+| **Query Products** | | **0%** |
+| + | [Process ingredients](https://github.com/PaulDepraz/firma_poc/issues/4) | 0% |
+| + | [Query products database](https://github.com/PaulDepraz/firma_poc/issues/5) | 0% |
+| + | [Process amounts convertion](https://github.com/PaulDepraz/firma_poc/issues/6) | 0% |
+| + | [Respond ordered list](https://github.com/PaulDepraz/firma_poc/issues/7) | 0% |
 | |
-| **Cadastrar Receitas** | | **20%** |
-| + | [Processar ingredientes](https://github.com/PaulDepraz/firma_poc/issues/9) | 0% |
-| + | [Processar verbos](https://github.com/PaulDepraz/firma_poc/issues/10) | 0% |
-| + | [Converter medidas](https://github.com/PaulDepraz/firma_poc/issues/11) | 0% |
-| + | [Armazenar ingredientes](https://github.com/PaulDepraz/firma_poc/issues/12) | 100% |
-| + | [Armazenar receita](https://github.com/PaulDepraz/firma_poc/issues/13) | 0% |
+| **Load Recipes** | | **20%** |
+| + | [Process ingredients](https://github.com/PaulDepraz/firma_poc/issues/9) | 0% |
+| + | [Process verbs](https://github.com/PaulDepraz/firma_poc/issues/10) | 0% |
+| + | [Process amounts](https://github.com/PaulDepraz/firma_poc/issues/11) | 0% |
+| + | [Store ingredients](https://github.com/PaulDepraz/firma_poc/issues/12) | 100% |
+| + | [Store recipe](https://github.com/PaulDepraz/firma_poc/issues/13) | 0% |
 | |
-| **Consultar Prećo** | | **50%** |
-| + | [Acessar api fornecedor](https://github.com/PaulDepraz/firma_poc/issues/8) | 50% |
+| **Query Supplier Price** | | **50%** |
+| + | [Reach suppliers api](https://github.com/PaulDepraz/firma_poc/issues/8) | 50% |
