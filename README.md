@@ -41,9 +41,9 @@ Dev Ops Management
 | 4.5 | [Sort browseable list](https://github.com/PaulDepraz/firma_poc/issues/17) | 3 | 0% |
 | 4.6 | [Unselect owned products](https://github.com/PaulDepraz/firma_poc/issues/18) | 2 | 0% |
 | **5. Show Shop List** | | | **0%** |
-| 5.2 | [Print shop list](https://github.com/PaulDepraz/firma_poc/issues/19) | 2 | 0% |
-| 5.3 | [Push shop list to mobile](https://github.com/PaulDepraz/firma_poc/issues/20) | 4 | 0% |
-| 5.4 | [Send list to supplier cart](https://github.com/PaulDepraz/firma_poc/issues/21) | 1 | 0% |
+| 5.1 | [Print shop list](https://github.com/PaulDepraz/firma_poc/issues/19) | 2 | 0% |
+| 5.2 | [Push shop list to mobile](https://github.com/PaulDepraz/firma_poc/issues/20) | 4 | 0% |
+| 5.3 | [Send list to supplier cart](https://github.com/PaulDepraz/firma_poc/issues/21) | 1 | 0% |
 | |
 
 **P* - Priority of development, 1 being highest.**
