@@ -14,22 +14,22 @@ Dev Ops Management
 | | **BACK END** | | **~20%** |
 | |
 | **1. Load Products** | | | **95%** |
-| 1.1 | [Reach supplier web site](https://github.com/PaulDepraz/firma_poc/issues/1) | 1 | 100% |
-| 1.2 | [Process query results](https://github.com/PaulDepraz/firma_poc/issues/2) | 1 | 90% |
-| 1.3 | [Store products](https://github.com/PaulDepraz/firma_poc/issues/3) | 1 | 100% |
+| 1.1 | [Reach supplier web site](https://github.com/PaulDepraz/firma_poc/issues/1) | 1 | 85% |
+| 1.2 | [Process query results](https://github.com/PaulDepraz/firma_poc/issues/2) | 1 | 80% |
+| 1.3 | [Store products](https://github.com/PaulDepraz/firma_poc/issues/3) | 1 | 80% |
 | |
 | **2. Query Products** | | | **0%** |
-| 2.1 | [Process ingredients](https://github.com/PaulDepraz/firma_poc/issues/4) | 1 | 0% |
-| 2.2 | [Query products database](https://github.com/PaulDepraz/firma_poc/issues/5) | 1 | 0% |
+| 2.1 | [Process ingredients](https://github.com/PaulDepraz/firma_poc/issues/4) | 1 | 80% |
+| 2.2 | [Query products database](https://github.com/PaulDepraz/firma_poc/issues/5) | 1 | 80% |
 | 2.3 | [Process amounts convertion](https://github.com/PaulDepraz/firma_poc/issues/6) | 2 | 0% |
-| 2.4 | [Respond sorted list](https://github.com/PaulDepraz/firma_poc/issues/7) | 1 | 0% |
+| 2.4 | [Respond sorted list](https://github.com/PaulDepraz/firma_poc/issues/7) | 1 | 80% |
 | |
 | **3. Load Recipes** | | | **20%** |
 | 3.1 | [Process ingredients](https://github.com/PaulDepraz/firma_poc/issues/9) | 3 | 0% |
 | 3.2 | [Process verbs](https://github.com/PaulDepraz/firma_poc/issues/10) | 3 | 0% |
 | 3.3 | [Process amounts](https://github.com/PaulDepraz/firma_poc/issues/11) | 2 | 0% |
-| 3.4 | [Store ingredients](https://github.com/PaulDepraz/firma_poc/issues/12) | 1 | 100% |
-| 3.5 | [Store recipe](https://github.com/PaulDepraz/firma_poc/issues/13) | 1 | 0% |
+| 3.4 | [Store ingredients](https://github.com/PaulDepraz/firma_poc/issues/12) | 1 | 80% |
+| 3.5 | [-Store recipe-](https://github.com/PaulDepraz/firma_poc/issues/13) | 1 | 20% |
 | |
 | | **FRONT END** | | **0%** |
 | |
@@ -47,3 +47,5 @@ Dev Ops Management
 | |
 
 **P* - Priority of development, 1 being highest.**
+**80% means requirement met. Development further is measured by enhancements**
+**Use Case names surrounded by `-` means its currently under development**
