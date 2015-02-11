@@ -13,12 +13,12 @@ Dev Ops Management
 | |
 | | **BACK END** | | **~20%** |
 | |
-| **1. Load Products** | | | **95%** |
+| **1. Load Products** | | | **81%** |
 | 1.1 | [Reach supplier web site](https://github.com/PaulDepraz/firma_poc/issues/1) | 1 | 85% |
 | 1.2 | [Process query results](https://github.com/PaulDepraz/firma_poc/issues/2) | 1 | 80% |
 | 1.3 | [Store products](https://github.com/PaulDepraz/firma_poc/issues/3) | 1 | 80% |
 | |
-| **2. Query Products** | | | **0%** |
+| **2. Query Products** | | | **60%** |
 | 2.1 | [Process ingredients](https://github.com/PaulDepraz/firma_poc/issues/4) | 1 | 80% |
 | 2.2 | [Query products database](https://github.com/PaulDepraz/firma_poc/issues/5) | 1 | 80% |
 | 2.3 | [Process amounts convertion](https://github.com/PaulDepraz/firma_poc/issues/6) | 2 | 0% |
