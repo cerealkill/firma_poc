@@ -11,7 +11,7 @@ Dev Ops Management
 | Use Case | Feature | P* | Progress |
 | :---: | :--- | :---: | :---: |
 | |
-| | **BACK END** | | **~20%** |
+| | **BACK END** | | **53%** |
 | |
 | **1. Load Products** | | | **81%** |
 | 1.1 | [Reach supplier web site](https://github.com/PaulDepraz/firma_poc/issues/1) | 1 | 85% |
