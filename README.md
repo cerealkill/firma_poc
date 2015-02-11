@@ -46,6 +46,6 @@ Dev Ops Management
 | 5.3 | [Send list to supplier cart](https://github.com/PaulDepraz/firma_poc/issues/21) | 1 | 0% |
 | |
 
-**P* - Priority of development, 1 being highest.**
-**80% means requirement met. Development further is measured by enhancements**
-**Use Case names surrounded by `-` means its currently under development**
+* **P* - Priority of development, 1 being highest.**
+* **80% means requirement met. Development further is measured by enhancements**
+* **Use Case names surrounded by `-` means its currently under development**
