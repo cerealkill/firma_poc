@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>Cardápio Maroto</title>
+		<meta charset="utf-8">
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script>
+			DB_URL = "http://www.paodeacucar.com.br/livePrice?jsonp=true&productIds=" + "37415,133583,176153,137114,287236,245094,87786,287235,5868,1189"
+			$(document).ready(function(){
+			    $("button").click(
+			    	function(){
+				        $.get(	
+				        	DB_URL, 
+			        		function(data, status){
+			            		alert("Data: " + data + "\nStatus: " + status);
+			        		}
+				        );
+			    });
+			});
+		</script>
+	</head>
+	<body>
+
+		<button>Send an HTTP GET request to a page and get the result back</button>
+
+	</body>
+</html>
