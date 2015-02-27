@@ -24,18 +24,18 @@ Dev Ops Management
 | 2.3 | [Process amounts convertion](https://github.com/PaulDepraz/firma_poc/issues/6) | 2 | 0% |
 | 2.4 | [Respond sorted list](https://github.com/PaulDepraz/firma_poc/issues/7) | 1 | 80% |
 | |
-| **3. Load Recipes** | | | **20%** |
+| **3. Load Recipes** | | | **35%** |
 | 3.1 | [Process ingredients](https://github.com/PaulDepraz/firma_poc/issues/9) | 3 | 0% |
 | 3.2 | [Process verbs](https://github.com/PaulDepraz/firma_poc/issues/10) | 3 | 0% |
 | 3.3 | [Process amounts](https://github.com/PaulDepraz/firma_poc/issues/11) | 2 | 0% |
 | 3.4 | [Store ingredients](https://github.com/PaulDepraz/firma_poc/issues/12) | 1 | 80% |
-| 3.5 | [-Store recipe-](https://github.com/PaulDepraz/firma_poc/issues/13) | 1 | 20% |
+| 3.5 | [Store recipe](https://github.com/PaulDepraz/firma_poc/issues/13) | 1 | 80% |
 | |
 | | **FRONT END** | | **0%** |
 | |
-| **4. Select Products** | | | **0%** |
+| **4. Select Products** | | | **10%** |
 | 4.1 | [Query products](https://github.com/PaulDepraz/firma_poc/issues/14) | 1 | 0% |
-| 4.2 | [Reach suppliers api](https://github.com/PaulDepraz/firma_poc/issues/8) | 1 | 0% |
+| 4.2 | [Reach suppliers api](https://github.com/PaulDepraz/firma_poc/issues/8) | 1 | 80% |
 | 4.3 | [Create products list](https://github.com/PaulDepraz/firma_poc/issues/15) | 1 | 0% |
 | 4.4 | [Show browseable list](https://github.com/PaulDepraz/firma_poc/issues/16) | 1 | 0% |
 | 4.5 | [Sort browseable list](https://github.com/PaulDepraz/firma_poc/issues/17) | 3 | 0% |
