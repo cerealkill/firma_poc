@@ -1,6 +1,6 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
-from recipes import Category, Ingredient
+from products import Category, Ingredient
 from cozy_couch import Couch
 
 

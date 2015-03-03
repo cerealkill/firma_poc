@@ -1,4 +1,11 @@
 eclipse.preferences.version=1
 encoding//ignore/printjson.py=utf-8
-encoding//lib/couchdbHandler.py=utf-8
-encoding//model/cadastroReceitas.py=utf-8
+encoding//ignore/teste.py=utf-8
+encoding//lib/cozy_couch.py=utf-8
+encoding//lib/jsonable.py=utf-8
+encoding//model/products.py=utf-8
+encoding//model/recipes.py=utf-8
+encoding//standalone/load_ingredients.py=utf-8
+encoding//standalone/load_products.py=utf-8
+encoding//standalone/load_recipe.py=utf-8
+encoding//webapp/py.py=utf-8

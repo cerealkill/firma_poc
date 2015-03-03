@@ -1,8 +1,16 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
 import couchdb
+import jsonable
 from uuid import uuid4
 
+class Document(jsonable.Jsonable):
+    def __init__(self, _type, _id, ancestors=None, value=''):
+        self.type = _type
+        self._id = _id
+        self.ancestors = ancestors
+        self.value = value
+        
 
 class Couch():
     """Couchdb Utils Class.
@@ -75,10 +83,15 @@ class Couch():
         print '\n[*] Done saving document id: ' + doc_id
         return db[doc_id]
 
-    def create_view_doc(self, name, map_all):
+    def create_view_alldoc(self, name, map_all):
         doc_id = '_design/' + name
         views = { 'all': {'map': map_all }}
         view_doc = { '_id' : doc_id, 'language': 'javascript', 'views': views}
+        return view_doc
+    
+    def create_view_doc(self, design_name, views_dict):
+        doc_id = '_design/' + design_name
+        view_doc = { '_id' : doc_id, 'language': 'javascript', 'views': views_dict}
         return view_doc
 
     def add_view_doc(self, db, view_doc):

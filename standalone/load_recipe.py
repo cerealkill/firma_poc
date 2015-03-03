@@ -40,7 +40,7 @@ def main():
     couch.add_doc(db, dict(r1))
     
     map_function = "function(doc) {if(doc.source.url == \""+ r1.source.url \
-        +"\") emit(\"recipe\", {\"name\": doc.name, \"steps\": doc.steps, \"ingredients\": doc.ingredients}); }"
+        +"\") emit(\"recipe\", {\"name\": doc.name, \"steps\": doc.steps, \"ingredients\": doc.ingredients, \"products\": doc.products}); }"
     views = {}
     views[r1.source.url] = {'map': map_function} 
     

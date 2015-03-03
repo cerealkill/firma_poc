@@ -3,7 +3,7 @@
 import urllib
 import re
 
-from products import Product
+from products import Product, ProductId
 from BeautifulSoup import BeautifulSoup
 from browser import anonBrowser
 from cozy_couch import Couch
@@ -63,7 +63,7 @@ def fetch_produtos(url, category, ingredient):
         desc = html.findChild("h3").text
         img = get_URL(html.findChild("img").get('src'))
         id_ = get_id(html.findChild("footer").get('id'))
-        produto = Product('pda', id_, desc, category, None, img, ingredient)
+        produto = Product(ProductId('pda', id_), desc, category, None, img, ingredient)
         products.append(produto)
         print '[.]\t\t Product: ' + desc
 
@@ -76,6 +76,8 @@ def main():
     couch.del_db(PRODUCTS_DATABASE)
     idb = couch.fetch_db(INGREDIENTS_DATABASE)
     pdb = couch.fetch_db(PRODUCTS_DATABASE)
+
+    views = {}
 
     for id in idb:
         i = idb[id]
@@ -94,10 +96,13 @@ def main():
                 couch.add_doc(pdb, dict(p))
 
         map_function = 'function(doc) {if (doc.ingredient == "' + \
-            ingredient + '") {emit(null, {"id": doc.o_id, "desc":' + \
+            ingredient + '") {emit(null, {"id": doc.p_id.o_id, "desc":' + \
             ' doc.desc, "img": doc.img, "price": doc.price}); } }'
-        view_doc = couch.create_view_doc(i['desc'], map_function)
-        couch.add_view_doc(pdb, view_doc)
+        
+        views[i['desc']] = {'map': map_function} 
+         
+    view_doc = couch.create_view_doc('by_ingredient', views)
+    couch.add_view_doc(pdb, view_doc)
 
     print '[+] Done.'
 
