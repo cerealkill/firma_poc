@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="pt-BR">
+	<head>
+		<title>{{ recipe['name'] }} - Cardápio Maroto</title>
+		<meta charset="utf-8">
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	</head>
+	<body>
+		<h1>{{ recipe.name }}</h1>
+		<h2>Valor estimado: R$ {{ tprice }} Tempo de preparo: {{ ttime }} min</h2>
+		<h3>Ingredientes</h3>
+		<ul>
+		{% for item in recipe.ingredients %}
+		    <li>{{ item.amount }} de {{ item.name }}</li>
+		{% endfor %}
+		</ul>
+		<h3>Modo de Preparo:</h3>
+		{% for step in recipe.steps %}
+		    <p>{{ step.text }}</p>
+		{% endfor %}
+		<h3>Selecão de Produtos:</h3>
+		{% for f in recipe.products %}
+		    <p><img src={{ f['img'].replace('200','50') }} > {{ f['desc'] }} - <strong>R$ {{ f['price'] }}</strong></p>
+		{% endfor %}
+		<h3>Produtos</h3>
+		{% for key in products.iterkeys() %}
+		<div id={{ key.replace(' ','_') }}>
+			<fieldset>
+    			<legend>{{ key }}:</legend>
+				{% for item in products[key] %}
+		    		<img src={{ item['img'].replace('200','50') }} > {{ item['desc'] }} - R$ {{ item['price'] }}
+		    	{% endfor %}
+			</fieldset>
+		</div>
+		{% endfor %}
+
+	</body>
+</html>

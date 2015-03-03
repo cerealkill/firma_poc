@@ -1,8 +1,15 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
 from flask import Flask
+from flask.templating import render_template
+from decimal import Decimal
+from datetime import datetime
+
 import httplib2
 import json
+import urllib
+import locale
+import re
 
 
 # Flask app call
@@ -11,6 +18,8 @@ app = Flask(__name__)
 DB_URL = "http://127.0.0.1:5984/"
 RECIPES_VIEW = "recipes/_design/by_url/_view/"
 RCPS_URL = DB_URL + RECIPES_VIEW
+PRODUCTS_VIEW = "products/_design/by_ingredient/_view/"
+PRDS_URL = DB_URL + PRODUCTS_VIEW
 
 HEADER = { 'Host': 'www.paodeacucar.com.br',
             'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:36.0) Gecko/20100101 Firefox/36.0',
@@ -19,7 +28,6 @@ HEADER = { 'Host': 'www.paodeacucar.com.br',
             'Connection': 'keep-alive',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' }
 
-#Cookie: __utma=184304057.836521572.1415134357.1421258726.1421260917.4; __utmz=184304057.1415134357.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); OAID=19f76bc89b59552173fa9bcef8998ad9; __utmc=184304057; ep.selected_store=3; ep.store_name_3=S%26%23xe3%3Bo%20Paulo; ep.currency_code_3=BRL; ep.language_code_3=pt-BR; SLIBeacon_1128597223=QNRNNXFTN1421255805432TCPYTDTHQ; SLI2_1128597223=QNRNNXFTN1421255805432TCPYTDTHQ.1421260918324.2.2; SLI4_1128597223=1421260929535; JSESSIONID=FA760EE1B56CDF8E44790B08E48985D2; ep.SYS=0; __utmb=184304057.3.10.1421260917; __utmt=1; SLI1_1128597223=QNRNNXFTN1421255805432TCPYTDTHQ.1421260918324.2.2; ep.ping=0; ep.lastTimeCheckedBasket=1421260918418
 
  
 @app.route('/')
@@ -38,22 +46,58 @@ def show_recipe(recipe_url):
     if(not found):
         return result
     recipe = json.loads(result)['rows'][0]['value']
-    # Fetch ingredients price from Suppliers
+    # Reach for product list by ingredient
     p_ids = []
-    for p in recipe['products']:
-        p_ids.append(eval(p['o_id']))
+    products = {}
+    for i in recipe['ingredients']:
+        ingredient = urllib.quote(i['name'])
+        found, result = get_db_data(PRDS_URL + ingredient)
+        if(found):
+            result = json.loads(result)['rows']
+            priced = []
+            for p in result:
+                priced.append(p['value'])
+                p_ids.append(p['value']['id'])
+            products[i['name']] = priced
+    # Fetch ingredients price from Suppliers
     p_ids = str(p_ids)[1:-1].replace(' ', '')
     found, result = get_prices(p_ids)
     if(not found):
         return result
     prices = json.loads(result[16: -1])['products']
-    for p in prices:
-        print str(p)
-    #sfor product in recipe['products']:
+    # Fill prices on products and order list by price
+    for ik in products.iterkeys():
+        ps = []
+        for p in products[ik]:
+            for pr in prices:
+                if(p['id']==pr['id'] and pr['stock']):
+                    p['price'] = pr['price']
+                    ps.append(p)
+                    break
+        products[ik] = ps
+        products[ik].sort(key=lambda k: k['price'])
+    # Get featured products sum
+    tprice = Decimal()
+    featured = []
+    for f in recipe['products']:
+        for l in products.itervalues():
+            found = False
+            for p in l:
+                if(eval(f['o_id'])==p['id']):
+                    tprice += Decimal(p['price'].replace(',','.'))
+                    featured.append(p)
+                    found = True
+                    break
+            if(found): break
+    recipe['products'] = featured
+    # Get total cook time sum
+    ttime = 0
+    for s in recipe['steps']:
+        if(s['time']):
+            time = re.search('([\d]+)', s['time']).group()
+            ttime += int(time)
         
-    
-    
-    return 'hold my ass for a sec loading: ' + recipe['name']
+    return render_template('recipe.html', recipe=recipe, products=products, tprice=tprice, ttime=ttime)
 
 
 def get_prices(product_ids):
@@ -80,9 +124,9 @@ def get_db_data(url):
     else:
         print '[!] Failed to get data from db.'
         return (False, 'Página não encontrada'.decode('utf-8'))
-    
-    
+
 
 if __name__ == '__main__':
+    locale.setlocale(locale.LC_ALL, 'pt_BR.utf8')
     app.debug = True
     app.run(host='0.0.0.0')
