@@ -3,7 +3,6 @@
 from flask import Flask
 from flask.templating import render_template
 from decimal import Decimal
-from datetime import datetime
 
 import httplib2
 import json
@@ -41,6 +40,23 @@ def index():
 
 @app.route('/recipes/<recipe_url>')
 def show_recipe(recipe_url):
+    # Fetch recipe document from database
+    found, result = get_db_data(RCPS_URL + recipe_url)
+    if(not found):
+        return result
+    recipe = json.loads(result)['rows'][0]['value']
+    # Get total cook time sum
+    ttime = 0
+    for s in recipe['steps']:
+        if(s['time']):
+            time = re.search('([\d]+)', s['time']).group()
+            ttime += int(time)
+        
+    return render_template('recipe.html', recipe=recipe, tprice='25,15', ttime=ttime)
+
+
+@app.route('/recipes/<recipe_url>/checkout')
+def show_recipe_checkout(recipe_url):
     # Fetch recipe document from database
     found, result = get_db_data(RCPS_URL + recipe_url)
     if(not found):
@@ -90,14 +106,8 @@ def show_recipe(recipe_url):
                     break
             if(found): break
     recipe['products'] = featured
-    # Get total cook time sum
-    ttime = 0
-    for s in recipe['steps']:
-        if(s['time']):
-            time = re.search('([\d]+)', s['time']).group()
-            ttime += int(time)
         
-    return render_template('recipe.html', recipe=recipe, products=products, tprice=tprice, ttime=ttime)
+    return render_template('checkout.html', recipe=recipe, products=products)
 
 
 def get_prices(product_ids):

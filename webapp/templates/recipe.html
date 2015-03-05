@@ -1,38 +1,42 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lang="pt-BR">
 	<head>
-		<title>{{ recipe['name'] }} - Cardápio Maroto</title>
+		<title>{{ recipe.name }} - Cardápio Maroto</title>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<style>
+  			.carousel-inner > .item > img,
+  			.carousel-inner > .item > a > img {
+      			width: 70%;
+      			margin: auto;}
+  		</style>
 	</head>
 	<body>
-		<h1>{{ recipe.name }}</h1>
-		<h2>Valor estimado: R$ {{ tprice }} Tempo de preparo: {{ ttime }} min</h2>
-		<h3>Ingredientes</h3>
-		<ul>
-		{% for item in recipe.ingredients %}
-		    <li>{{ item.amount }} de {{ item.name }}</li>
-		{% endfor %}
-		</ul>
-		<h3>Modo de Preparo:</h3>
-		{% for step in recipe.steps %}
-		    <p>{{ step.text }}</p>
-		{% endfor %}
-		<h3>Selecão de Produtos:</h3>
-		{% for f in recipe.products %}
-		    <p><img src={{ f['img'].replace('200','50') }} > {{ f['desc'] }} - <strong>R$ {{ f['price'] }}</strong></p>
-		{% endfor %}
-		<h3>Produtos</h3>
-		{% for key in products.iterkeys() %}
-		<div id={{ key.replace(' ','_') }}>
-			<fieldset>
-    			<legend>{{ key }}:</legend>
-				{% for item in products[key] %}
-		    		<img src={{ item['img'].replace('200','50') }} > {{ item['desc'] }} - R$ {{ item['price'] }}
-		    	{% endfor %}
-			</fieldset>
-		</div>
-		{% endfor %}
+		<div class="container">
+			<div class="jumbotron">
+		  		<h1>Cardápio Maroto</h1>      
+		    	<p>Cardápios completos para uma vida mais saudável e gostosa!</p>      
+		    	<a href="#" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-search"></span> Encontre...</a>
+			</div>
+			<h1>{{ recipe.name }}&nbsp;<a href="{{ recipe.url }}/checkout"><span class="glyphicon glyphicon-shopping-cart"></span></a></h1>
+			<h4>
+			<p><span class="glyphicon glyphicon-usd"></span>&nbsp;Valor estimado: R$ {{ tprice }}</p>
+			<p><span class="glyphicon glyphicon-time"></span>&nbsp;Tempo de preparo: {{ ttime }} minutos</p>
+			</h4>
+
+			<h3>Ingredientes</h3>
+			<ul>
+			{% for item in recipe.ingredients %}
+			    <li>{{ item.amount }} de {{ item.name }}</li>
+			{% endfor %}
+			</ul>
+			<h3>Modo de Preparo:</h3>
+			{% for step in recipe.steps %}
+			    <p>{{ step.text }}</p>
+			{% endfor %}
 
 	</body>
 </html>
