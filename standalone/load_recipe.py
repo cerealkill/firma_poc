@@ -5,7 +5,7 @@ from products import ProductId
 from cozy_couch import Couch
 
 
-URL = 'http://127.0.0.1:5984'
+URL = 'https://firma.iriscouch.com'
 DATABASE = 'recipes'
 
 

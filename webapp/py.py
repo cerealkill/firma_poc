@@ -14,7 +14,7 @@ import re
 # Flask app call
 app = Flask(__name__)
 
-DB_URL = "http://127.0.0.1:5984/"
+DB_URL = "https://firma.iriscouch.com/"
 RECIPES_VIEW = "recipes/_design/by_url/_view/"
 RCPS_URL = DB_URL + RECIPES_VIEW
 PRODUCTS_VIEW = "products/_design/by_ingredient/_view/"

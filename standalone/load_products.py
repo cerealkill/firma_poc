@@ -9,7 +9,7 @@ from browser import anonBrowser
 from cozy_couch import Couch
 
 
-DATABASEURL = 'http://127.0.0.1:5984'
+DATABASEURL = 'https://firma.iriscouch.com'
 INGREDIENTS_DATABASE = 'ingredients'
 PRODUCTS_DATABASE = 'products'
 MAX_RESULTS = '20'
