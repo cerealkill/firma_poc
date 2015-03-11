@@ -141,5 +141,5 @@ def get_db_data(url):
 
 if __name__ == '__main__':
     locale.setlocale(locale.LC_ALL, 'pt_BR.utf8')
-    app.debug = False
-    app.run(host='0.0.0.0', port=80)
+    app.debug = True
+    app.run(host='0.0.0.0')
